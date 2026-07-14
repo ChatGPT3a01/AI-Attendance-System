@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>到班打卡系統</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>到班打卡系統</h1>
+            <p>歡迎使用地端打卡系統</p>
+        </header>
+
+        <nav class="nav-menu">
+            <a href="{{ url_for('attendance') }}" class="nav-btn">
+                <div class="nav-icon">⏰</div>
+                <div class="nav-text">打卡</div>
+            </a>
+            <a href="{{ url_for('admin') }}" class="nav-btn">
+                <div class="nav-icon">⚙️</div>
+                <div class="nav-text">管理</div>
+            </a>
+        </nav>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>功能說明</h3>
+                <ul>
+                    <li>📋 上傳學生名單CSV檔案</li>
+                    <li>📸 自動配對學生照片</li>
+                    <li>⏰ 到班/離班打卡記錄</li>
+                    <li>📊 出缺勤報表匯出</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>使用流程</h3>
+                <ol>
+                    <li>下載CSV模板</li>
+                    <li>填寫學生資料</li>
+                    <li>上傳CSV檔案</li>
+                    <li>放置學生照片</li>
+                    <li>開始使用打卡功能</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

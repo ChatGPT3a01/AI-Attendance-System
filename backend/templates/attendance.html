@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打卡 - 到班打卡系統</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>打卡系統</h1>
+            <a href="{{ url_for('index') }}" class="back-btn">← 返回首頁</a>
+        </header>
+
+        <div class="attendance-form">
+            <h2>請輸入學生資訊</h2>
+            <div class="input-group">
+                <label for="className">班級：</label>
+                <input type="text" id="className" placeholder="例如：107">
+            </div>
+
+            <div class="input-group">
+                <label for="seatNumber">座號：</label>
+                <input type="number" id="seatNumber" placeholder="例如：23">
+            </div>
+
+            <button id="searchStudent" class="btn btn-primary">查詢學生</button>
+        </div>
+
+        <div id="studentInfo" class="student-info" style="display: none;">
+            <div class="student-card">
+                <div class="student-photo">
+                    <img id="studentPhoto" src="" alt="學生照片">
+                </div>
+                <div class="student-details">
+                    <h3 id="studentName"></h3>
+                    <p><strong>班級：</strong><span id="displayClass"></span></p>
+                    <p><strong>座號：</strong><span id="displaySeat"></span></p>
+                    <p><strong>職稱：</strong><span id="studentPosition"></span></p>
+                </div>
+            </div>
+
+            <div class="attendance-buttons">
+                <button id="punchIn" class="btn btn-success btn-large">
+                    <span class="btn-icon">✅</span>
+                    到班打卡
+                </button>
+                <button id="punchOut" class="btn btn-danger btn-large">
+                    <span class="btn-icon">❌</span>
+                    離班打卡
+                </button>
+            </div>
+
+            <div id="punchResult" class="result-message"></div>
+        </div>
+
+        <div class="recent-records">
+            <h3>最近打卡記錄</h3>
+            <div id="recentRecords" class="records-list">
+                <!-- 最近的打卡記錄會顯示在這裡 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/attendance.js') }}"></script>
+</body>
+</html>

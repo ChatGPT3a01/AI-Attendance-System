@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理介面 - 到班打卡系統</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>管理介面</h1>
+            <a href="{{ url_for('index') }}" class="back-btn">← 返回首頁</a>
+        </header>
+
+        <div class="admin-section">
+            <h2>學生資料管理</h2>
+
+            <div class="upload-section">
+                <h3>下載CSV模板</h3>
+                <p>請先下載模板檔案，填寫學生資料後再上傳</p>
+                <button id="downloadTemplate" class="btn btn-primary">下載CSV模板</button>
+            </div>
+
+            <div class="upload-section">
+                <h3>上傳學生名單</h3>
+                <div class="file-upload">
+                    <input type="file" id="csvFile" accept=".csv" class="file-input">
+                    <label for="csvFile" class="file-label">選擇CSV檔案</label>
+                    <button id="uploadCsv" class="btn btn-success">上傳</button>
+                </div>
+                <div id="uploadResult" class="result-message"></div>
+            </div>
+
+            <div class="photo-instructions">
+                <h3>照片管理說明</h3>
+                <div class="instruction-box">
+                    <p><strong>照片命名規則：</strong></p>
+                    <p>照片檔案名稱格式：<code>班級+座號</code></p>
+                    <p>例如：107班23號 → <code>10723.jpg</code> 或 <code>10723.png</code></p>
+                    <p>例如：107班6號 → <code>1076.jpg</code> 或 <code>1076.png</code></p>
+                    <p>請將照片檔案放置在 <code>photos</code> 資料夾中</p>
+                    <div style="margin-top: 15px; padding: 10px; background: #e8f4fd; border-left: 4px solid #2196F3;">
+                        <strong>注意：</strong>座號不需要補零，直接使用實際座號數字即可
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-section">
+            <h2>出缺勤報表</h2>
+            <div class="export-section">
+                <div class="date-range">
+                    <label for="startDate">開始日期：</label>
+                    <input type="date" id="startDate">
+
+                    <label for="endDate">結束日期：</label>
+                    <input type="date" id="endDate">
+                </div>
+                <button id="exportData" class="btn btn-info">匯出出缺勤記錄</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>
